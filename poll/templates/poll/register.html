@@ -1,0 +1,28 @@
+{% extends "poll/base.html" %}
+{% block title %}Registeration{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Registeration Form</h3>
+            </div>
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Name"><br>
+                <input type="email" name="email" placeholder="email"><br>
+                <input type="password" name="password1" placeholder="Password"><br>
+                <input type="password" name="password2" placeholder="Confirm Password"><br>
+                <input type="Submit">
+            </form>
+            <div>
+                {% for message in messages %}
+                <h3> {{message}} </h3>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
